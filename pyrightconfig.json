@@ -1,0 +1,18 @@
+{
+  "include": [
+    "."
+  ],
+  "extraPaths": [
+    ".",
+    ".venv/Lib/site-packages"
+  ],
+  "venvPath": ".",
+  "venv": ".venv",
+  "pythonPlatform": "Windows",
+  "typeCheckingMode": "off",
+  "reportMissingImports": "none",
+  "reportMissingModuleSource": "none",
+  "reportGeneralTypeIssues": "none",
+  "reportOptionalMemberAccess": "none",
+  "reportUnknownMemberType": "none"
+}
