@@ -232,10 +232,10 @@ export default function TutorStudio() {
           style={{
             marginBottom: '1rem',
             padding: '0.75rem 1rem',
-            background: 'var(--color-tertiary-fixed, #dcfce7)',
-            border: '1px solid var(--color-tertiary-fixed-dim, #86efac)',
+            background: 'rgba(16, 185, 129, 0.15)',
+            border: '1px solid rgba(16, 185, 129, 0.3)',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-tertiary-fixed, #86efac)',
+            color: '#86efac',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
@@ -253,10 +253,10 @@ export default function TutorStudio() {
           style={{
             marginBottom: '1rem',
             padding: '0.75rem 1rem',
-            background: 'var(--color-error-container, #fee2e2)',
-            border: '1px solid #fecaca',
+            background: 'rgba(239, 68, 68, 0.15)',
+            border: '1px solid rgba(239, 68, 68, 0.3)',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-error-container, #fca5a5)',
+            color: '#fca5a5',
             fontSize: '0.85rem',
             fontWeight: 500,
           }}
@@ -324,7 +324,7 @@ export default function TutorStudio() {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '1rem',
-                background: 'var(--color-surface-container-low, #fafbff)',
+                background: '#09090b',
               }}
             >
               {messages.map((m, idx) => {
@@ -336,7 +336,7 @@ export default function TutorStudio() {
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: isTutor ? 'flex-start' : 'flex-end',
-                      maxWidth: '88%',
+                      maxWidth: '90%',
                       alignSelf: isTutor ? 'flex-start' : 'flex-end',
                     }}
                   >
@@ -345,38 +345,42 @@ export default function TutorStudio() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '0.4rem',
-                        marginBottom: '0.25rem',
+                        marginBottom: '0.35rem',
                         fontSize: '0.72rem',
                         color: 'var(--text-muted)',
                       }}
                     >
                       {isTutor ? (
                         <>
-                          <BotMessageSquare size={14} color="var(--color-tertiary, #16a34a)" />
-                          <span>AI Tutor • {language}</span>
+                          <BotMessageSquare size={14} color="#10b981" />
+                          <span style={{ color: '#10b981', fontWeight: 600 }}>AI Tutor • {language}</span>
                         </>
                       ) : (
                         <>
-                          <User size={14} color="var(--color-primary, #2563eb)" />
-                          <span>You ({userId})</span>
+                          <User size={14} color="#3b82f6" />
+                          <span style={{ color: '#93c5fd' }}>You ({userId})</span>
                         </>
                       )}
                     </div>
 
                     <div
                       style={{
-                        padding: '0.95rem 1.25rem',
-                        borderRadius: 'var(--radius-lg)',
-                        background: isTutor ? '#ffffff' : 'var(--color-primary, #2563eb)',
-                        border: isTutor ? '1px solid var(--border-subtle)' : 'none',
-                        color: isTutor ? 'var(--text-main)' : '#ffffff',
+                        padding: '1rem 1.25rem',
+                        borderRadius: '0.75rem',
+                        background: isTutor ? '#18181b' : 'rgba(37, 99, 235, 0.25)',
+                        border: isTutor ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(59, 130, 246, 0.4)',
+                        color: '#f4f4f5',
                         fontSize: '0.9rem',
-                        lineHeight: 1.55,
-                        whiteSpace: 'pre-wrap',
-                        boxShadow: 'var(--shadow-sm)',
+                        lineHeight: 1.6,
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)',
+                        width: '100%',
                       }}
                     >
-                      {m.text}
+                      {isTutor ? (
+                        <MarkdownRenderer content={m.text} />
+                      ) : (
+                        <div style={{ whiteSpace: 'pre-wrap' }}>{m.text}</div>
+                      )}
                     </div>
 
                     {/* Quick generate notes button below tutor reply */}
@@ -509,12 +513,12 @@ export default function TutorStudio() {
               {lastCommittedSummary ? (
                 <div
                   style={{
-                    background: 'var(--color-secondary-fixed, #ffedd5)',
-                    border: '1px solid var(--color-secondary-fixed-dim, #fdba74)',
+                    background: 'rgba(249, 115, 22, 0.15)',
+                    border: '1px solid rgba(249, 115, 22, 0.3)',
                     padding: '0.65rem 0.75rem',
                     borderRadius: 'var(--radius-sm)',
                     fontSize: '0.78rem',
-                    color: 'var(--color-on-secondary-fixed, #fdba74)',
+                    color: '#fdba74',
                     fontWeight: 500,
                   }}
                 >
@@ -648,9 +652,10 @@ export default function TutorStudio() {
                       <div
                         style={{
                           fontSize: '0.78rem',
-                          color: 'var(--color-primary, #2563eb)',
+                          color: '#93c5fd',
                           marginBottom: '0.75rem',
-                          background: 'var(--color-primary-fixed, #dbeafe)',
+                          background: 'rgba(37, 99, 235, 0.15)',
+                          border: '1px solid rgba(59, 130, 246, 0.3)',
                           padding: '0.4rem 0.6rem',
                           borderRadius: 'var(--radius-sm)',
                           fontWeight: 500,
