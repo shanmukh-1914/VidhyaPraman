@@ -95,14 +95,17 @@ export async function triggerGoogleOAuth() {
  * Triggers GitHub OAuth authorization window or popup.
  * Resolves with { code }.
  */
-export async function triggerGitHubOAuth(redirectUri = window.location.origin) {
+export async function triggerGitHubOAuth(redirectUri = null) {
   const clientId = GITHUB_CLIENT_ID;
   if (!clientId || clientId.includes('Demo')) {
     throw new Error('VITE_GITHUB_CLIENT_ID is not configured in frontend/.env');
   }
 
   const scope = 'read:user user:email repo';
-  const authUrl = `https://github.com/login/oauth/authorize?client_id=${encodeURIComponent(clientId)}&scope=${encodeURIComponent(scope)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+  let authUrl = `https://github.com/login/oauth/authorize?client_id=${encodeURIComponent(clientId)}&scope=${encodeURIComponent(scope)}`;
+  if (redirectUri) {
+    authUrl += `&redirect_uri=${encodeURIComponent(redirectUri)}`;
+  }
 
   return new Promise((resolve, reject) => {
     const width = 600;
