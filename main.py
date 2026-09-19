@@ -23,6 +23,20 @@ from typing import Any, Dict, List, Optional, Union
 import numpy as np
 from PIL import Image
 
+# Load root .env file if present
+_env_file = Path(__file__).resolve().parent / '.env'
+if _env_file.exists():
+    try:
+        with open(_env_file, 'r', encoding='utf-8') as _f:
+            for _line in _f:
+                _line = _line.strip()
+                if _line and not _line.startswith('#') and '=' in _line:
+                    _k, _v = _line.split('=', 1)
+                    if _k.strip() not in os.environ:
+                        os.environ[_k.strip()] = _v.strip().strip('"\'')
+    except Exception:
+        pass
+
 # Ensure UTF-8 console output on Windows
 for _stream in (sys.stdout, sys.stderr):
     _reconfig = getattr(_stream, "reconfigure", None)

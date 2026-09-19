@@ -10,6 +10,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Load .env file if present
 env_file = BASE_DIR / '.env'
+if not env_file.exists():
+    env_file = BASE_DIR.parent / '.env'
 if env_file.exists():
     with open(env_file, 'r', encoding='utf-8') as f:
         for line in f:

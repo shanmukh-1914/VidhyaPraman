@@ -61,7 +61,7 @@ apt-get install -y \
     git \
     curl \
     nginx \
-    libgl1-mesa-glx \
+    libgl1 \
     libglib2.0-0 \
     libgomp1 \
     htop \
@@ -94,30 +94,54 @@ if [ "$SCRIPT_DIR" != "$APP_DIR" ]; then
     cp "$SCRIPT_DIR"/.gitignore "$APP_DIR"/ 2>/dev/null || true
 fi
 
+if [ -f "$APP_DIR/.env" ]; then
+    cp "$APP_DIR/.env" "$APP_DIR/frontend/.env" 2>/dev/null || true
+    cp "$APP_DIR/.env" "$APP_DIR/server_django/.env" 2>/dev/null || true
+fi
+
 chown -R "$CURRENT_USER:$CURRENT_USER" "$APP_DIR"
 echo -e "${GREEN}✓ Files placed in $APP_DIR.${NC}"
 
 # ------------------------------------------------------------------------------
-# 6. Python Virtual Environment & CPU-Optimized Dependencies
+# 6. Python Virtual Environment & CPU-Optimized Dependencies (Python 3.12 via uv)
 # ------------------------------------------------------------------------------
-echo -e "\n${YELLOW}>>> [Step 5/8] Setting up Python Virtual Environment & AI Models...${NC}"
+echo -e "\n${YELLOW}>>> [Step 5/8] Setting up Python 3.12 Virtual Environment & AI Models...${NC}"
 sudo -u "$CURRENT_USER" bash <<EOF
+set -e
 cd "$APP_DIR"
-if [ ! -d ".venv" ]; then
-    python3 -m venv .venv
-fi
-source .venv/bin/activate
-pip install --upgrade pip setuptools wheel
 
-# Install PyTorch CPU-only wheel (saves ~2.5GB disk and avoids massive CUDA download)
+# Install uv (fast Python manager that guarantees Python 3.12 compatibility)
+if ! command -v uv &> /dev/null && [ ! -f "\$HOME/.local/bin/uv" ]; then
+    echo "Installing uv package manager..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+fi
+export PATH="\$HOME/.local/bin:\$PATH"
+
+# Recreate .venv using Python 3.12 (fixes Python 3.14 C-extension compilation errors)
+if [ -d ".venv" ]; then
+    # Check if existing venv is python 3.14
+    if .venv/bin/python3 -c "import sys; exit(0 if sys.version_info < (3, 14) else 1)" 2>/dev/null; then
+        echo "Valid Python 3.12/3.11 venv exists."
+    else
+        echo "Replacing incompatible Python environment with stable Python 3.12..."
+        rm -rf .venv
+        uv venv --python 3.12 .venv
+    fi
+else
+    uv venv --python 3.12 .venv
+fi
+
+source .venv/bin/activate
+
+# Install PyTorch CPU-only wheel via uv (lightning fast, pre-built binary)
 echo "Installing CPU-only PyTorch for AWS Free Tier..."
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 
 # Install remaining AI, FastAPI, and Django dependencies
-echo "Installing Vidhya Praman dependencies..."
-pip install -r requirements.txt
+echo "Installing Vidhya Praman dependencies via uv..."
+uv pip install -r requirements.txt
 EOF
-echo -e "${GREEN}✓ Python environment and AI libraries configured.${NC}"
+echo -e "${GREEN}✓ Python 3.12 environment and AI libraries configured successfully.${NC}"
 
 # ------------------------------------------------------------------------------
 # 7. Django Migrations & React Production Build
