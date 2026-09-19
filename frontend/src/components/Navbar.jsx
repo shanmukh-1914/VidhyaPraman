@@ -3,6 +3,11 @@ import {
   User,
   LogOut,
   ChevronDown,
+  Sparkles,
+  ShieldCheck,
+  Bell,
+  Search,
+  ExternalLink,
 } from 'lucide-react';
 import VidhyaPramanLogo from './VidhyaPramanLogo';
 import { useAuth } from '../context/AuthContext';
@@ -14,106 +19,73 @@ export default function Navbar() {
 
   return (
     <>
-      <header
-        className="glass-card"
-        style={{
-          borderRadius: 0,
-          borderTop: 'none',
-          borderLeft: 'none',
-          borderRight: 'none',
-          padding: '0.75rem 2rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          position: 'sticky',
-          top: 0,
-          zIndex: 40,
-          background: 'var(--color-surface, #ffffff)',
-          backdropFilter: 'blur(16px)',
-          borderBottom: '1px solid var(--border-subtle)',
-        }}
-      >
-        {/* Left Branding */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-          <VidhyaPramanLogo size={36} />
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span
-                className="font-brand"
-                style={{
-                  fontWeight: 900,
-                  fontSize: '1.25rem',
-                  letterSpacing: '0.04em',
-                  color: 'var(--color-on-surface, #1e293b)',
-                }}
-              >
-                VIDHYA <span style={{ color: 'var(--color-secondary, #f97316)' }}>PRAMAN</span>
-              </span>
-              <span className="badge badge-orange" style={{ fontSize: '0.68rem' }}>Learner Hub</span>
+      <header className="sticky top-0 z-40 flex items-center justify-between px-6 py-3 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-850 select-none transition-colors">
+        {/* Left Branding / Breadcrumb */}
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
+            <VidhyaPramanLogo size={32} />
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-brand font-black text-sm tracking-wide text-white">
+                  VIDHYA <span className="text-orange-500">PRAMAN</span>
+                </span>
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-orange-500/10 text-orange-400 border border-orange-500/25">
+                  Learner Hub
+                </span>
+              </div>
+              <p className="text-[11px] text-zinc-400 hidden sm:block">
+                Intelligent Learning Platform & Credential Verification
+              </p>
             </div>
-            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-              Intelligent Learning Platform & Credential Verification
-            </p>
           </div>
         </div>
 
         {/* Right Navigation & User Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          {/* User Profile Chip */}
+        <div className="flex items-center gap-3">
+          {/* Status Chip */}
+          <div className="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/80 border border-zinc-800 text-[11px] text-zinc-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span>AI Verified</span>
+          </div>
+
+          {/* User Profile Chip (BagUI Pill Pattern) */}
           {user && (
-            <div
+            <button
               onClick={() => setShowProfileModal(true)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.65rem',
-                padding: '0.35rem 0.85rem 0.35rem 0.45rem',
-                borderRadius: 'var(--radius-full)',
-                background: 'var(--color-surface-container-low, #f8fafc)',
-                border: '1px solid var(--border-subtle)',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-              }}
+              className="flex items-center gap-2.5 px-2.5 py-1 rounded-full bg-zinc-900/90 hover:bg-zinc-800/90 border border-zinc-800 transition-all cursor-pointer text-left"
               title="Click to view/edit profile and GitHub sync"
             >
               <img
-                src={user.avatar_url || user.github_avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.full_name || user.username)}&background=2563eb&color=fff`}
+                src={
+                  user.avatar_url ||
+                  user.github_avatar_url ||
+                  `https://ui-avatars.com/api/?name=${encodeURIComponent(
+                    user.full_name || user.username
+                  )}&background=3b82f6&color=fff`
+                }
                 alt={user.username}
-                style={{
-                  width: '30px',
-                  height: '30px',
-                  borderRadius: '50%',
-                  objectFit: 'cover',
-                  border: '1.5px solid var(--color-primary, #2563eb)',
-                }}
+                className="w-7 h-7 rounded-full object-cover border border-zinc-700"
               />
-              <div style={{ textAlign: 'left', lineHeight: 1.1 }}>
-                <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--color-on-surface, #1e293b)', display: 'block' }}>
+              <div className="hidden sm:block leading-tight">
+                <span className="text-xs font-semibold text-zinc-100 block truncate max-w-[120px]">
                   {user.full_name || user.username}
                 </span>
-                <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+                <span className="text-[10px] text-zinc-400 block truncate max-w-[120px]">
                   {user.github_username ? `@${user.github_username}` : user.target_role || 'Learner'}
                 </span>
               </div>
-              <ChevronDown size={14} color="var(--text-muted)" />
-            </div>
+              <ChevronDown size={13} className="text-zinc-400 ml-0.5" />
+            </button>
           )}
 
           {/* Logout Button */}
           {user && (
             <button
-              className="btn btn-secondary"
-              style={{
-                padding: '0.45rem 0.75rem',
-                fontSize: '0.8rem',
-                color: 'var(--color-error, #dc2626)',
-                borderColor: 'var(--color-error-container, #fee2e2)',
-                background: 'var(--color-error-container, #fee2e2)',
-              }}
               onClick={logout}
               title="Sign Out"
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-zinc-900 hover:bg-red-950/40 border border-zinc-800 hover:border-red-800/60 text-zinc-400 hover:text-red-400 transition-colors cursor-pointer"
             >
-              <LogOut size={15} />
+              <LogOut size={14} />
             </button>
           )}
         </div>

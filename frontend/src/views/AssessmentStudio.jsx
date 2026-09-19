@@ -128,7 +128,7 @@ export default function AssessmentStudio() {
         }}
       >
         <Shield size={20} color="var(--color-primary, #2563eb)" />
-        <div style={{ fontSize: '0.82rem', color: '#1e3a8a', lineHeight: 1.4 }}>
+        <div style={{ fontSize: '0.82rem', color: '#93c5fd', lineHeight: 1.4 }}>
           <strong>Zero Database Writes Guarantee:</strong> Scores, choices, and attempts in this sandbox exist purely in memory. They do not affect your official skill matrices, learning paths, or assessment history.
         </div>
       </div>
@@ -141,7 +141,7 @@ export default function AssessmentStudio() {
             background: 'var(--color-error-container, #fee2e2)',
             border: '1px solid #fecaca',
             borderRadius: '12px',
-            color: 'var(--color-on-error-container, #991b1b)',
+            color: 'var(--color-on-error-container, #fca5a5)',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
@@ -163,7 +163,7 @@ export default function AssessmentStudio() {
           style={{
             padding: '2rem',
             borderRadius: '20px',
-            background: '#ffffff',
+            background: 'var(--bg-card)',
             border: '1px solid var(--border-subtle)',
             boxShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.05)',
           }}
@@ -267,7 +267,7 @@ export default function AssessmentStudio() {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              background: '#ffffff',
+              background: 'var(--bg-card)',
               border: '1px solid var(--border-subtle)',
             }}
           >
@@ -351,7 +351,7 @@ export default function AssessmentStudio() {
                   style={{
                     padding: '1.5rem',
                     borderRadius: '16px',
-                    background: '#ffffff',
+                    background: 'var(--bg-card)',
                     border: isSubmitted
                       ? isCorrect
                         ? '1px solid var(--color-tertiary, #16a34a)'
@@ -398,20 +398,20 @@ export default function AssessmentStudio() {
                       const isSelected = selectedOption === optKey;
                       const isAnswerKey = isSubmitted && testData.answer_key?.[q.id] === optKey;
 
-                      let optBg = '#ffffff';
+                      let optBg = '#121216';
                       let optBorder = '1px solid var(--border-subtle)';
 
                       if (isSubmitted) {
                         if (isAnswerKey) {
-                          optBg = 'var(--color-tertiary-fixed, #dcfce7)';
-                          optBorder = '1px solid var(--color-tertiary, #16a34a)';
+                          optBg = 'rgba(16, 185, 129, 0.2)';
+                          optBorder = '1px solid #10b981';
                         } else if (isSelected && !isCorrect) {
-                          optBg = 'var(--color-error-container, #fee2e2)';
-                          optBorder = '1px solid #fecaca';
+                          optBg = 'rgba(239, 68, 68, 0.2)';
+                          optBorder = '1px solid #ef4444';
                         }
                       } else if (isSelected) {
-                        optBg = 'var(--color-primary-fixed, #dbeafe)';
-                        optBorder = '1px solid var(--color-primary, #2563eb)';
+                        optBg = 'rgba(37, 99, 235, 0.2)';
+                        optBorder = '1px solid #3b82f6';
                       }
 
                       return (
@@ -436,8 +436,14 @@ export default function AssessmentStudio() {
                               width: '22px',
                               height: '22px',
                               borderRadius: '6px',
-                              background: isSelected ? 'var(--color-primary, #2563eb)' : '#f1f5f9',
-                              color: isSelected ? '#ffffff' : 'var(--text-main)',
+                              background: isSelected
+                                ? '#3b82f6'
+                                : isSubmitted && isAnswerKey
+                                ? '#10b981'
+                                : isSubmitted && isSelected && !isCorrect
+                                ? '#ef4444'
+                                : '#27272a',
+                              color: '#ffffff',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
@@ -459,7 +465,7 @@ export default function AssessmentStudio() {
                       style={{
                         padding: '0.75rem 1rem',
                         borderRadius: '10px',
-                        background: 'var(--color-surface-container-low, #f8fafc)',
+                        background: 'var(--bg-card)',
                         border: '1px solid var(--border-subtle)',
                         fontSize: '0.8rem',
                         color: 'var(--text-main)',

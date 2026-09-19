@@ -98,7 +98,7 @@ export default function SkillConfidence() {
             background: 'var(--color-error-container, #fee2e2)',
             border: '1px solid #fecaca',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-error-container, #991b1b)',
+            color: 'var(--color-on-error-container, #fca5a5)',
             fontSize: '0.85rem',
             fontWeight: 500,
           }}
@@ -357,7 +357,7 @@ export default function SkillConfidence() {
                   borderRadius: 'var(--radius-sm)',
                   marginBottom: '1rem',
                   fontSize: '0.78rem',
-                  color: 'var(--color-on-tertiary-fixed, #14532d)',
+                  color: 'var(--color-on-tertiary-fixed, #86efac)',
                   fontWeight: 600,
                 }}
               >

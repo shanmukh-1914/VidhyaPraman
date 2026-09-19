@@ -31,6 +31,7 @@ import {
 import Github from '../components/GithubIcon';
 import { useAuth } from '../context/AuthContext';
 import ProfileModal from '../components/ProfileModal';
+import DashboardStoreCatalog from '../components/DashboardStoreCatalog';
 
 export default function Dashboard({ isOnline, setActiveTab }) {
   const { user, activities, syncGitHub, isLoading } = useAuth();
@@ -105,6 +106,10 @@ export default function Dashboard({ isOnline, setActiveTab }) {
     },
   ];
 
+  const currentHour = new Date().getHours();
+  const timeGreeting =
+    currentHour < 12 ? 'Good morning' : currentHour < 18 ? 'Good afternoon' : 'Good evening';
+
   return (
     <div className="page-wrapper animate-fade-in">
       {/* 1. Hero / Welcome Header */}
@@ -118,7 +123,7 @@ export default function Dashboard({ isOnline, setActiveTab }) {
               </span>
             </div>
             <h1 style={{ fontSize: '2rem', fontWeight: 800, letterSpacing: '-0.02em', margin: 0, color: 'var(--text-main)' }}>
-              Welcome back, <span className="gradient-text">{user?.full_name || user?.username || 'Learner'}</span> 👋
+              {timeGreeting}, <span className="gradient-text">{user?.full_name || user?.username || 'Learner'}</span> 👋
             </h1>
             <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginTop: '0.35rem', maxWidth: '680px', lineHeight: 1.5 }}>
               Track your career readiness, take proctored assessments, connect your developer portfolio, and achieve your study milestones.
@@ -131,7 +136,7 @@ export default function Dashboard({ isOnline, setActiveTab }) {
               style={{
                 padding: '0.75rem 1.1rem',
                 borderRadius: '14px',
-                background: '#ffffff',
+                background: '#18181b',
                 border: '1px solid var(--border-subtle)',
                 boxShadow: 'var(--shadow-sm)',
                 textAlign: 'left',
@@ -194,7 +199,7 @@ export default function Dashboard({ isOnline, setActiveTab }) {
                 width: '32px',
                 height: '32px',
                 borderRadius: '8px',
-                background: 'var(--color-surface-container-low, #f8fafc)',
+                background: '#18181b',
                 border: '1px solid var(--border-subtle)',
                 display: 'flex',
                 alignItems: 'center',
@@ -272,28 +277,28 @@ export default function Dashboard({ isOnline, setActiveTab }) {
 
           {/* Quantitative Counters */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.75rem' }}>
-            <div style={{ background: 'var(--color-surface-container-low, #f8fafc)', padding: '0.75rem 0.9rem', borderRadius: '12px', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ background: '#18181b', padding: '0.75rem 0.9rem', borderRadius: '12px', border: '1px solid var(--border-subtle)' }}>
               <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600 }}>Public Repos</div>
               <div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--color-primary, #2563eb)', marginTop: '0.1rem' }}>
                 {user?.github_public_repos !== undefined ? user.github_public_repos : 0}
               </div>
             </div>
 
-            <div style={{ background: 'var(--color-surface-container-low, #f8fafc)', padding: '0.75rem 0.9rem', borderRadius: '12px', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ background: '#18181b', padding: '0.75rem 0.9rem', borderRadius: '12px', border: '1px solid var(--border-subtle)' }}>
               <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600 }}>Followers</div>
               <div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-main)', marginTop: '0.1rem' }}>
                 {user?.github_followers !== undefined ? user.github_followers : 0}
               </div>
             </div>
 
-            <div style={{ background: 'var(--color-surface-container-low, #f8fafc)', padding: '0.75rem 0.9rem', borderRadius: '12px', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ background: '#18181b', padding: '0.75rem 0.9rem', borderRadius: '12px', border: '1px solid var(--border-subtle)' }}>
               <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600 }}>Following</div>
               <div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-main)', marginTop: '0.1rem' }}>
                 {user?.github_following !== undefined ? user.github_following : 0}
               </div>
             </div>
 
-            <div style={{ background: 'var(--color-surface-container-low, #f8fafc)', padding: '0.75rem 0.9rem', borderRadius: '12px', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ background: '#18181b', padding: '0.75rem 0.9rem', borderRadius: '12px', border: '1px solid var(--border-subtle)' }}>
               <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600 }}>Passed Exams</div>
               <div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--color-tertiary, #16a34a)', marginTop: '0.1rem' }}>
                 {activities?.filter((a) => a.activity_type === 'assessment').length || 0}
@@ -330,7 +335,7 @@ export default function Dashboard({ isOnline, setActiveTab }) {
                   rel="noreferrer"
                   style={{
                     textDecoration: 'none',
-                    background: '#ffffff',
+                    background: '#18181b',
                     border: '1px solid var(--border-subtle)',
                     borderRadius: '12px',
                     padding: '0.85rem 1rem',
@@ -409,7 +414,7 @@ export default function Dashboard({ isOnline, setActiveTab }) {
                         width: '40px',
                         height: '40px',
                         borderRadius: '12px',
-                        background: 'var(--color-surface-container-low, #f8fafc)',
+                        background: '#18181b',
                         border: '1px solid var(--border-subtle)',
                         display: 'flex',
                         alignItems: 'center',
@@ -452,7 +457,16 @@ export default function Dashboard({ isOnline, setActiveTab }) {
         </div>
       </div>
 
-      {/* 4. Recent Activity & Verification History */}
+      {/* 4. BagUI Dashboard-Store Catalog & Evidence Hub */}
+      <div style={{ marginBottom: '1.5rem' }}>
+        <DashboardStoreCatalog
+          user={user}
+          activities={activities}
+          setActiveTab={setActiveTab}
+        />
+      </div>
+
+      {/* 5. Recent Activity & Verification History */}
       <div className="glass-card">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -474,7 +488,7 @@ export default function Dashboard({ isOnline, setActiveTab }) {
                 style={{
                   padding: '0.85rem 1rem',
                   borderRadius: '12px',
-                  background: 'var(--color-surface-container-low, #f8fafc)',
+                  background: '#18181b',
                   border: '1px solid var(--border-subtle)',
                   display: 'flex',
                   alignItems: 'center',

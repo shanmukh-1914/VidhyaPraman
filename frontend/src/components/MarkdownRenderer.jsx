@@ -34,7 +34,7 @@ export default function MarkdownRenderer({ content = '' }) {
         <div
           key={`code-${elements.length}`}
           style={{
-            background: 'var(--color-surface-container-low, #f8fafc)',
+            background: '#121216',
             border: '1px solid var(--border-subtle)',
             borderRadius: '12px',
             padding: '1.25rem',
@@ -47,7 +47,7 @@ export default function MarkdownRenderer({ content = '' }) {
               {codeLang || 'CODE'}
             </span>
           </div>
-          <pre style={{ margin: 0, fontFamily: 'monospace', fontSize: '0.86rem', color: '#1e293b', lineHeight: 1.5 }}>
+          <pre style={{ margin: 0, fontFamily: 'monospace', fontSize: '0.86rem', color: '#f4f4f5', lineHeight: 1.5 }}>
             <code>{codeBuffer.join('\n')}</code>
           </pre>
         </div>
@@ -70,10 +70,10 @@ export default function MarkdownRenderer({ content = '' }) {
           <code
             key={pIdx}
             style={{
-              background: 'var(--color-surface-container-low, #f1f5f9)',
+              background: '#27272a',
               padding: '0.15rem 0.4rem',
               borderRadius: '4px',
-              color: 'var(--color-primary, #2563eb)',
+              color: '#93c5fd',
               fontSize: '0.85em',
               fontFamily: 'monospace',
             }}

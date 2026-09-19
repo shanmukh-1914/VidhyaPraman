@@ -375,7 +375,7 @@ export default function ModuleStudio() {
             background: 'var(--color-tertiary-fixed, #dcfce7)',
             border: '1px solid var(--color-tertiary-fixed-dim, #86efac)',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-tertiary-fixed, #14532d)',
+            color: 'var(--color-on-tertiary-fixed, #86efac)',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
@@ -396,7 +396,7 @@ export default function ModuleStudio() {
             background: 'var(--color-error-container, #fee2e2)',
             border: '1px solid #fecaca',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-error-container, #991b1b)',
+            color: 'var(--color-on-error-container, #fca5a5)',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
@@ -494,26 +494,33 @@ export default function ModuleStudio() {
                           padding: '0.55rem 0.75rem',
                           borderRadius: '8px',
                           background: isModActive
-                            ? 'var(--color-primary-fixed, #dbeafe)'
+                            ? 'rgba(37, 99, 235, 0.2)'
                             : mod.is_unlocked
-                            ? 'var(--color-surface-container-low, #f8fafc)'
-                            : '#f1f5f9',
-                          border: isModActive ? '1px solid var(--color-primary-fixed-dim, #93c5fd)' : '1px solid var(--border-subtle)',
+                            ? '#18181b'
+                            : 'rgba(24, 24, 27, 0.6)',
+                          border: isModActive
+                            ? '1px solid #3b82f6'
+                            : '1px solid rgba(255, 255, 255, 0.08)',
                           cursor: mod.is_unlocked ? 'pointer' : 'not-allowed',
-                          opacity: mod.is_unlocked ? 1 : 0.65,
                           transition: 'all 0.15s ease',
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                           {mod.exam_passed ? (
-                            <CheckCircle2 size={16} color="var(--color-tertiary, #16a34a)" />
+                            <CheckCircle2 size={16} color="#86efac" />
                           ) : mod.is_unlocked ? (
-                            <Unlock size={15} color="var(--color-primary, #2563eb)" />
+                            <Unlock size={15} color="#60a5fa" />
                           ) : (
-                            <Lock size={15} color="var(--text-dim)" />
+                            <Lock size={15} color="#71717a" />
                           )}
                           <div>
-                            <div style={{ fontSize: '0.8rem', fontWeight: isModActive ? 700 : 600, color: 'var(--text-main)' }}>
+                            <div
+                              style={{
+                                fontSize: '0.82rem',
+                                fontWeight: isModActive ? 700 : 500,
+                                color: isModActive ? '#ffffff' : mod.is_unlocked ? '#f4f4f5' : '#a1a1aa',
+                              }}
+                            >
                               #{mIdx + 1}. {mod.title}
                             </div>
                           </div>
@@ -614,7 +621,7 @@ export default function ModuleStudio() {
                     value={assignmentCode}
                     onChange={(e) => handleCodeChange(e.target.value)}
                     rows={8}
-                    style={{ fontFamily: 'monospace', fontSize: '0.85rem', background: '#ffffff' }}
+                    style={{ fontFamily: 'monospace', fontSize: '0.85rem', background: 'var(--bg-card)' }}
                   />
                 </div>
 
@@ -667,8 +674,9 @@ export default function ModuleStudio() {
                                       gap: '0.5rem',
                                       padding: '0.5rem 0.75rem',
                                       borderRadius: '6px',
-                                      background: examAnswers[qid] === k ? 'var(--color-primary-fixed, #dbeafe)' : 'var(--color-surface-container-low, #f8fafc)',
-                                      border: examAnswers[qid] === k ? '1px solid var(--color-primary, #2563eb)' : '1px solid var(--border-subtle)',
+                                      background: examAnswers[qid] === k ? 'rgba(37, 99, 235, 0.2)' : '#121216',
+                                      border: examAnswers[qid] === k ? '1px solid #3b82f6' : '1px solid var(--border-subtle)',
+                                      color: 'var(--text-main)',
                                       cursor: 'pointer',
                                       fontSize: '0.82rem',
                                     }}
@@ -714,7 +722,7 @@ export default function ModuleStudio() {
 
                   {/* Right Column: Live Webcam Monitor */}
                   <div style={{ position: 'sticky', top: '5.5rem' }}>
-                    <div className="glass-card" style={{ background: '#ffffff', borderRadius: '16px' }}>
+                    <div className="glass-card" style={{ background: 'var(--bg-card)', borderRadius: '16px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
                         <span style={{ fontSize: '0.9rem', fontWeight: 800 }}>Camera Integrity Monitor</span>
                         <span className="badge badge-green" style={{ fontSize: '0.65rem' }}>LIVE</span>
@@ -730,7 +738,7 @@ export default function ModuleStudio() {
                         label="Exam Session Camera"
                       />
 
-                      <div style={{ marginTop: '0.75rem', padding: '0.65rem', borderRadius: '8px', background: 'var(--color-surface-container-low, #f8fafc)', border: '1px solid var(--border-subtle)' }}>
+                      <div style={{ marginTop: '0.75rem', padding: '0.65rem', borderRadius: '8px', background: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}>
                         <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Session Integrity Score</div>
                         <div style={{ fontSize: '1.2rem', fontWeight: 800, color: integrityScore >= 80 ? 'var(--color-tertiary, #16a34a)' : 'var(--color-secondary, #f97316)' }}>
                           {integrityScore}%
@@ -757,12 +765,12 @@ export default function ModuleStudio() {
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                        <CheckCircle2 size={36} color="var(--color-on-tertiary-fixed, #14532d)" />
+                        <CheckCircle2 size={36} color="var(--color-on-tertiary-fixed, #86efac)" />
                         <div>
-                          <h3 style={{ margin: 0, fontWeight: 900, color: '#14532d', fontSize: '1.15rem' }}>
+                          <h3 style={{ margin: 0, fontWeight: 900, color: '#86efac', fontSize: '1.15rem' }}>
                             Module Passed & Certified!
                           </h3>
-                          <p style={{ margin: '0.2rem 0 0', fontSize: '0.88rem', color: '#166534' }}>
+                          <p style={{ margin: '0.2rem 0 0', fontSize: '0.88rem', color: '#bbf7d0' }}>
                             {outcomeData.message || 'The next sequential module has been unlocked in your learning tree.'}
                           </p>
                         </div>
@@ -776,7 +784,7 @@ export default function ModuleStudio() {
                       className="glass-card"
                       style={{
                         border: '2px solid var(--color-secondary, #f97316)',
-                        background: '#ffffff',
+                        background: 'var(--bg-card)',
                         padding: '1.75rem',
                       }}
                     >
@@ -807,7 +815,7 @@ export default function ModuleStudio() {
                       </div>
 
                       {/* Remediation Notes */}
-                      <div style={{ background: 'var(--color-surface-container-low, #f8fafc)', padding: '1rem', borderRadius: '10px', marginBottom: '1.25rem', border: '1px solid var(--border-subtle)' }}>
+                      <div style={{ background: 'var(--bg-card)', padding: '1rem', borderRadius: '10px', marginBottom: '1.25rem', border: '1px solid var(--border-subtle)' }}>
                         <MarkdownRenderer content={outcomeData.remediation.remediation_notes} />
                       </div>
 
@@ -837,12 +845,12 @@ export default function ModuleStudio() {
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                        <ShieldAlert size={36} color="var(--color-on-error-container, #991b1b)" />
+                        <ShieldAlert size={36} color="var(--color-on-error-container, #fca5a5)" />
                         <div>
-                          <h3 style={{ margin: 0, fontWeight: 900, color: 'var(--color-on-error-container, #991b1b)', fontSize: '1.15rem' }}>
+                          <h3 style={{ margin: 0, fontWeight: 900, color: 'var(--color-on-error-container, #fca5a5)', fontSize: '1.15rem' }}>
                             MALPRACTICE RESET TRIGGERED
                           </h3>
-                          <p style={{ margin: '0.25rem 0 0', fontSize: '0.88rem', color: '#991b1b' }}>
+                          <p style={{ margin: '0.25rem 0 0', fontSize: '0.88rem', color: '#fca5a5' }}>
                             {outcomeData.message || 'All progress for this specific skill has been reset to Module 1. Other skills remain unaffected.'}
                           </p>
                         </div>
@@ -890,7 +898,7 @@ export default function ModuleStudio() {
               maxWidth: '520px',
               padding: '2rem',
               borderRadius: '20px',
-              background: '#ffffff',
+              background: 'var(--bg-card)',
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
             }}
           >
@@ -923,7 +931,7 @@ export default function ModuleStudio() {
               You have successfully completed the assignment. You are about to enter a proctored evaluation session with webcam integrity monitoring to verify your module mastery.
             </p>
 
-            <div style={{ background: 'var(--color-surface-container-low, #f8fafc)', padding: '0.85rem 1rem', borderRadius: '10px', marginBottom: '1.5rem', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ background: 'var(--bg-card)', padding: '0.85rem 1rem', borderRadius: '10px', marginBottom: '1.5rem', border: '1px solid var(--border-subtle)' }}>
               <div style={{ fontSize: '0.8rem', fontWeight: 700, marginBottom: '0.35rem', color: 'var(--text-main)' }}>
                 Exam Conditions:
               </div>
@@ -979,7 +987,7 @@ export default function ModuleStudio() {
               maxWidth: '560px',
               padding: '2rem',
               borderRadius: '20px',
-              background: '#ffffff',
+              background: 'var(--bg-card)',
               maxHeight: '90vh',
               overflowY: 'auto',
             }}
@@ -1015,7 +1023,7 @@ export default function ModuleStudio() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem' }}>
               {readinessQuestions.questions?.map((q, idx) => (
-                <div key={q.id} style={{ padding: '0.85rem', background: 'var(--color-surface-container-low, #f8fafc)', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
+                <div key={q.id} style={{ padding: '0.85rem', background: 'var(--bg-card)', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
                   <div style={{ fontSize: '0.85rem', fontWeight: 700, marginBottom: '0.5rem' }}>
                     {idx + 1}. {q.prompt}
                   </div>
@@ -1029,8 +1037,9 @@ export default function ModuleStudio() {
                           gap: '0.5rem',
                           padding: '0.4rem 0.6rem',
                           borderRadius: '6px',
-                          background: readinessAnswers[q.id] === k ? 'var(--color-primary-fixed, #dbeafe)' : '#ffffff',
-                          border: readinessAnswers[q.id] === k ? '1px solid var(--color-primary, #2563eb)' : '1px solid var(--border-subtle)',
+                          background: readinessAnswers[q.id] === k ? 'rgba(37, 99, 235, 0.2)' : '#121216',
+                          border: readinessAnswers[q.id] === k ? '1px solid #3b82f6' : '1px solid var(--border-subtle)',
+                          color: 'var(--text-main)',
                           cursor: 'pointer',
                           fontSize: '0.8rem',
                         }}

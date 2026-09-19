@@ -111,8 +111,8 @@ function MainApp() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'var(--color-background, #fafbff)',
-          color: 'var(--color-on-background, #1e293b)',
+          background: 'var(--color-background, #09090b)',
+          color: 'var(--color-on-background, #f4f4f5)',
           gap: '1.25rem',
         }}
       >
@@ -124,13 +124,13 @@ function MainApp() {
               fontSize: '1.5rem',
               fontWeight: 900,
               letterSpacing: '0.04em',
-              color: 'var(--color-on-background, #1e293b)',
+              color: 'var(--color-on-background, #f4f4f5)',
               marginBottom: '0.25rem',
             }}
           >
             VIDHYA <span style={{ color: 'var(--color-secondary, #f97316)' }}>PRAMAN</span>
           </h2>
-          <p style={{ color: 'var(--text-muted, #475569)', fontSize: '0.85rem', fontWeight: 500 }}>
+          <p style={{ color: 'var(--text-muted, #a1a1aa)', fontSize: '0.85rem', fontWeight: 500 }}>
             Initializing secure learning platform & cloud session...
           </p>
         </div>
@@ -144,12 +144,12 @@ function MainApp() {
   }
 
   return (
-    <div className="app-container">
+    <div className="app-container bg-zinc-950 text-zinc-100 min-h-screen">
       {/* Sidebar Navigation */}
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* Main Content Area with Real-Time Keep-Alive Persistence */}
-      <div className="main-content">
+      <div className="main-content bg-zinc-950 text-zinc-100">
         <Navbar />
         <main style={{ position: 'relative', width: '100%', minHeight: 'calc(100vh - 70px)' }}>
           <div style={{ display: activeTab === 'dashboard' ? 'block' : 'none' }}>

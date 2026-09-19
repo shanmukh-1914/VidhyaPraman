@@ -592,7 +592,15 @@ def proctoring_session_end_view(request):
 
     session_id = request.data.get('session_id')
     exam_score = request.data.get('score') or request.data.get('exam_score')
-    score_val = float(exam_score) if exam_score is not None else None
+    try:
+        score_val = float(exam_score) if exam_score is not None else None
+    except ValueError:
+        if str(exam_score).lower() == 'pass':
+            score_val = 1.0
+        elif str(exam_score).lower() == 'fail':
+            score_val = 0.0
+        else:
+            score_val = None
     passing_threshold = float(request.data.get('passing_threshold', 0.70))
 
     if not session_id:

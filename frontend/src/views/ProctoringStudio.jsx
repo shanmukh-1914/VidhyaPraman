@@ -121,7 +121,7 @@ export default function ProctoringStudio() {
             background: 'var(--color-error-container, #fee2e2)',
             border: '1px solid #fecaca',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-error-container, #991b1b)',
+            color: 'var(--color-on-error-container, #fca5a5)',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
@@ -138,7 +138,7 @@ export default function ProctoringStudio() {
       <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '1.5rem', alignItems: 'flex-start' }}>
         {/* Left Column: Live Camera & Session Controls */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-          <div className="glass-card" style={{ background: '#ffffff', borderRadius: '16px' }}>
+          <div className="glass-card" style={{ background: 'var(--bg-card)', borderRadius: '16px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Eye size={18} color="var(--color-primary, #2563eb)" />
@@ -188,12 +188,12 @@ export default function ProctoringStudio() {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <ShieldAlert size={32} color="var(--color-on-error-container, #991b1b)" />
+                <ShieldAlert size={32} color="var(--color-on-error-container, #fca5a5)" />
                 <div>
-                  <h3 style={{ margin: 0, fontWeight: 900, color: 'var(--color-on-error-container, #991b1b)', fontSize: '1.05rem' }}>
+                  <h3 style={{ margin: 0, fontWeight: 900, color: 'var(--color-on-error-container, #fca5a5)', fontSize: '1.05rem' }}>
                     SESSION TERMINATED: MALPRACTICE DETECTED
                   </h3>
-                  <p style={{ margin: '0.25rem 0 0', fontSize: '0.85rem', color: '#991b1b' }}>
+                  <p style={{ margin: '0.25rem 0 0', fontSize: '0.85rem', color: '#fca5a5' }}>
                     {terminationReason || 'A second individual or unauthorized secondary device was detected in your camera frame.'}
                   </p>
                 </div>
@@ -212,12 +212,12 @@ export default function ProctoringStudio() {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <ShieldCheck size={32} color="var(--color-on-tertiary-fixed, #14532d)" />
+                <ShieldCheck size={32} color="var(--color-on-tertiary-fixed, #86efac)" />
                 <div>
-                  <h3 style={{ margin: 0, fontWeight: 900, color: '#14532d', fontSize: '1.05rem' }}>
+                  <h3 style={{ margin: 0, fontWeight: 900, color: '#86efac', fontSize: '1.05rem' }}>
                     SESSION COMPLETED: VERIFIED COMPLIANT
                   </h3>
-                  <p style={{ margin: '0.25rem 0 0', fontSize: '0.85rem', color: '#166534' }}>
+                  <p style={{ margin: '0.25rem 0 0', fontSize: '0.85rem', color: '#bbf7d0' }}>
                     Exam environment verified with 0 malpractice incidents recorded throughout the session.
                   </p>
                 </div>
@@ -235,14 +235,14 @@ export default function ProctoringStudio() {
             </h3>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '1rem' }}>
-              <div style={{ padding: '0.75rem', borderRadius: '10px', background: 'var(--color-surface-container-low, #f8fafc)', border: '1px solid var(--border-subtle)' }}>
+              <div style={{ padding: '0.75rem', borderRadius: '10px', background: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}>
                 <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Person Count</div>
                 <div style={{ fontSize: '1.25rem', fontWeight: 800, color: currentAnalysis?.face_count > 1 ? 'var(--color-error, #dc2626)' : 'var(--text-main)' }}>
                   {currentAnalysis?.face_count ?? 1} {currentAnalysis?.face_count > 1 ? '(Violation!)' : ''}
                 </div>
               </div>
 
-              <div style={{ padding: '0.75rem', borderRadius: '10px', background: 'var(--color-surface-container-low, #f8fafc)', border: '1px solid var(--border-subtle)' }}>
+              <div style={{ padding: '0.75rem', borderRadius: '10px', background: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}>
                 <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Secondary Device</div>
                 <div style={{ fontSize: '1.25rem', fontWeight: 800, color: currentAnalysis?.phone_detected ? 'var(--color-error, #dc2626)' : 'var(--color-tertiary, #16a34a)' }}>
                   {currentAnalysis?.phone_detected ? 'DETECTED!' : 'None'}
@@ -250,7 +250,7 @@ export default function ProctoringStudio() {
               </div>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.65rem 0.85rem', borderRadius: '8px', background: 'var(--color-surface-container-low, #f8fafc)', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.65rem 0.85rem', borderRadius: '8px', background: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}>
               <span style={{ fontSize: '0.8rem', fontWeight: 600 }}>Integrity Metric:</span>
               <span style={{ fontSize: '0.95rem', fontWeight: 800, color: integrityScore >= 80 ? 'var(--color-tertiary, #16a34a)' : 'var(--color-error, #dc2626)' }}>
                 {integrityScore}%
@@ -287,7 +287,7 @@ export default function ProctoringStudio() {
                       <span>{ev.event?.toUpperCase()}</span>
                       <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem' }}>{ev.timestamp?.split('T')[1]?.slice(0, 8)}</span>
                     </div>
-                    <div style={{ color: ev.event === 'malpractice_trigger' ? '#991b1b' : 'var(--text-muted)', marginTop: '0.2rem' }}>
+                    <div style={{ color: ev.event === 'malpractice_trigger' ? '#fca5a5' : 'var(--text-muted)', marginTop: '0.2rem' }}>
                       {ev.violation_reason || ev.details || `Outcome: ${ev.final_outcome}`}
                     </div>
                   </div>

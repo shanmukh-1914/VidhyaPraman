@@ -235,7 +235,7 @@ export default function TutorStudio() {
             background: 'var(--color-tertiary-fixed, #dcfce7)',
             border: '1px solid var(--color-tertiary-fixed-dim, #86efac)',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-tertiary-fixed, #14532d)',
+            color: 'var(--color-on-tertiary-fixed, #86efac)',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
@@ -256,7 +256,7 @@ export default function TutorStudio() {
             background: 'var(--color-error-container, #fee2e2)',
             border: '1px solid #fecaca',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-error-container, #991b1b)',
+            color: 'var(--color-on-error-container, #fca5a5)',
             fontSize: '0.85rem',
             fontWeight: 500,
           }}
@@ -410,7 +410,7 @@ export default function TutorStudio() {
             <div
               style={{
                 padding: '0.5rem 1rem',
-                background: '#ffffff',
+                background: 'var(--bg-card)',
                 borderTop: '1px solid var(--border-subtle)',
                 display: 'flex',
                 gap: '0.4rem',
@@ -437,7 +437,7 @@ export default function TutorStudio() {
               }}
               style={{
                 padding: '0.85rem 1rem',
-                background: '#ffffff',
+                background: 'var(--bg-card)',
                 borderTop: '1px solid var(--border-subtle)',
                 display: 'flex',
                 gap: '0.75rem',
@@ -480,7 +480,7 @@ export default function TutorStudio() {
                     <div
                       key={idx}
                       style={{
-                        background: 'var(--color-surface-container-low, #f8fafc)',
+                        background: 'var(--bg-card)',
                         border: '1px solid var(--border-subtle)',
                         padding: '0.6rem 0.75rem',
                         borderRadius: 'var(--radius-sm)',
@@ -514,7 +514,7 @@ export default function TutorStudio() {
                     padding: '0.65rem 0.75rem',
                     borderRadius: 'var(--radius-sm)',
                     fontSize: '0.78rem',
-                    color: 'var(--color-on-secondary-fixed, #7c2d12)',
+                    color: 'var(--color-on-secondary-fixed, #fdba74)',
                     fontWeight: 500,
                   }}
                 >
@@ -664,7 +664,7 @@ export default function TutorStudio() {
                       style={{
                         maxHeight: '340px',
                         overflowY: 'auto',
-                        background: 'var(--color-surface-container-low, #f8fafc)',
+                        background: 'var(--bg-card)',
                         padding: '1rem',
                         borderRadius: 'var(--radius-md)',
                         fontSize: '0.85rem',
@@ -694,7 +694,7 @@ export default function TutorStudio() {
               display: 'flex',
               flexDirection: 'column',
               padding: '1.75rem',
-              background: '#ffffff',
+              background: 'var(--bg-card)',
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.75rem' }}>

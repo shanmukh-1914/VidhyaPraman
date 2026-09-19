@@ -44,6 +44,7 @@ from ultralytics import YOLO
 _MODEL_INSTANCE: Optional[YOLO] = None
 _PERSON_CLASS_ID: int = 0
 _PHONE_CLASS_ID: int = 67
+_DEVICE_CLASS_IDS: set = {67, 65}
 
 
 def get_model(model_name: str = "yolov8n.pt") -> YOLO:
@@ -56,9 +57,10 @@ def get_model(model_name: str = "yolov8n.pt") -> YOLO:
     Returns:
         YOLO: Instantiated and warm Ultralytics YOLO model.
     """
-    global _MODEL_INSTANCE, _PERSON_CLASS_ID, _PHONE_CLASS_ID
+    global _MODEL_INSTANCE, _PERSON_CLASS_ID, _PHONE_CLASS_ID, _DEVICE_CLASS_IDS
     if _MODEL_INSTANCE is None:
         _MODEL_INSTANCE = YOLO(model_name)
+        _DEVICE_CLASS_IDS = set()
         # Dynamically map class indices from model metadata
         for cls_id, name in _MODEL_INSTANCE.names.items():
             name_lower = name.lower()
@@ -66,6 +68,9 @@ def get_model(model_name: str = "yolov8n.pt") -> YOLO:
                 _PERSON_CLASS_ID = int(cls_id)
             elif name_lower in ("cell phone", "cellphone", "phone"):
                 _PHONE_CLASS_ID = int(cls_id)
+                _DEVICE_CLASS_IDS.add(int(cls_id))
+            elif any(w in name_lower for w in ("remote", "laptop", "tablet", "screen")):
+                _DEVICE_CLASS_IDS.add(int(cls_id))
                 
     return _MODEL_INSTANCE
 

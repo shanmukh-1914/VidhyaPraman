@@ -1,19 +1,27 @@
 /**
  * Vidhya Praman Unified API Client
- * Connects to the FastAPI backend running on http://127.0.0.1:8000 by default.
+ * Dynamically resolves API endpoints:
+ * - In local development: defaults to http://127.0.0.1:8000 (FastAPI) & http://127.0.0.1:8001 (Django)
+ * - In AWS / Production: automatically routes via Nginx reverse proxy (/fastapi & /django) or VITE_API_URL env vars
  */
 
-let BASE_URL = localStorage.getItem('vidhyapraman_api_url') || localStorage.getItem('skillforge_api_url') || 'http://127.0.0.1:8000';
-let DJANGO_URL = localStorage.getItem('vidhyapraman_django_url') || localStorage.getItem('skillforge_django_url') || 'http://127.0.0.1:8001';
+const isBrowser = typeof window !== 'undefined';
+const isLocalhost = isBrowser && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+
+const defaultFastApiUrl = import.meta.env.VITE_API_URL || (isLocalhost ? 'http://127.0.0.1:8000' : (isBrowser ? `${window.location.origin}/fastapi` : 'http://127.0.0.1:8000'));
+const defaultDjangoUrl = import.meta.env.VITE_DJANGO_URL || (isLocalhost ? 'http://127.0.0.1:8001' : (isBrowser ? `${window.location.origin}/django` : 'http://127.0.0.1:8001'));
+
+let BASE_URL = (isBrowser && (localStorage.getItem('vidhyapraman_api_url') || localStorage.getItem('skillforge_api_url'))) || defaultFastApiUrl;
+let DJANGO_URL = (isBrowser && (localStorage.getItem('vidhyapraman_django_url') || localStorage.getItem('skillforge_django_url'))) || defaultDjangoUrl;
 
 export const setApiBaseUrl = (url) => {
   BASE_URL = url.replace(/\/+$/, '');
-  localStorage.setItem('vidhyapraman_api_url', BASE_URL);
+  if (isBrowser) localStorage.setItem('vidhyapraman_api_url', BASE_URL);
 };
 
 export const setDjangoBaseUrl = (url) => {
   DJANGO_URL = url.replace(/\/+$/, '');
-  localStorage.setItem('vidhyapraman_django_url', DJANGO_URL);
+  if (isBrowser) localStorage.setItem('vidhyapraman_django_url', DJANGO_URL);
 };
 
 export const getApiBaseUrl = () => BASE_URL;

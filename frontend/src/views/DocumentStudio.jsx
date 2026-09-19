@@ -172,7 +172,7 @@ export default function DocumentStudio() {
             background: 'var(--color-error-container, #fee2e2)',
             border: '1px solid #fecaca',
             borderRadius: '12px',
-            color: 'var(--color-on-error-container, #991b1b)',
+            color: 'var(--color-on-error-container, #fca5a5)',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
@@ -194,7 +194,7 @@ export default function DocumentStudio() {
           style={{
             padding: '2.5rem 2rem',
             borderRadius: '20px',
-            background: '#ffffff',
+            background: 'var(--bg-card)',
             border: '1px solid var(--border-subtle)',
             boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.05)',
             textAlign: 'center',
@@ -207,7 +207,8 @@ export default function DocumentStudio() {
               width: '64px',
               height: '64px',
               borderRadius: '20px',
-              background: 'var(--color-surface-container-high, #f1f5f9)',
+              background: '#18181b',
+              border: '1px solid var(--border-subtle)',
               color: 'var(--color-secondary, #f97316)',
               display: 'flex',
               alignItems: 'center',
@@ -300,7 +301,7 @@ export default function DocumentStudio() {
           style={{
             padding: '3rem 2rem',
             borderRadius: '20px',
-            background: '#ffffff',
+            background: 'var(--bg-card)',
             border: '1px solid var(--color-tertiary, #16a34a)',
             boxShadow: '0 15px 35px -10px rgba(22, 163, 74, 0.12)',
             textAlign: 'center',
@@ -363,7 +364,7 @@ export default function DocumentStudio() {
               alignItems: 'center',
               flexWrap: 'wrap',
               gap: '1rem',
-              background: '#ffffff',
+              background: 'var(--bg-card)',
               border: '1px solid var(--border-subtle)',
             }}
           >
@@ -406,10 +407,11 @@ export default function DocumentStudio() {
           <div
             id="verified-resume-document"
             style={{
-              background: '#ffffff',
+              background: 'var(--bg-card)',
               borderRadius: '16px',
               padding: '3rem',
-              boxShadow: '0 20px 45px -15px rgba(0, 0, 0, 0.08), 0 0 0 1px #e2e8f0',
+              boxShadow: 'var(--shadow-card-elevated)',
+              border: '1px solid var(--border-subtle)',
               maxWidth: '920px',
               margin: '0 auto',
               width: '100%',
@@ -418,7 +420,7 @@ export default function DocumentStudio() {
             {/* Header / Candidate Identity */}
             <div
               style={{
-                borderBottom: `2px solid ${selectedTemplateId === 'executive_lead' ? '#0f172a' : selectedTemplateId === 'minimalist_developer' ? '#16a34a' : '#2563eb'}`,
+                borderBottom: `2px solid ${selectedTemplateId === 'executive_lead' ? '#3b82f6' : selectedTemplateId === 'minimalist_developer' ? '#10b981' : '#f97316'}`,
                 paddingBottom: '1.5rem',
                 marginBottom: '2rem',
                 display: 'flex',
@@ -452,7 +454,7 @@ export default function DocumentStudio() {
                   textAlign: 'right',
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#14532d', fontSize: '0.78rem', fontWeight: 800 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#86efac', fontSize: '0.78rem', fontWeight: 800 }}>
                   <ShieldCheck size={16} color="var(--color-tertiary, #16a34a)" />
                   <span>VIDHYA PRAMAN VERIFIED</span>
                 </div>
@@ -484,7 +486,7 @@ export default function DocumentStudio() {
                     style={{
                       padding: '0.65rem 0.85rem',
                       borderRadius: '8px',
-                      background: 'var(--color-surface-container-low, #f8fafc)',
+                      background: 'var(--bg-card)',
                       border: '1px solid var(--border-subtle)',
                       display: 'flex',
                       justifyContent: 'space-between',
@@ -519,7 +521,7 @@ export default function DocumentStudio() {
                     style={{
                       padding: '1rem',
                       borderRadius: '10px',
-                      background: 'var(--color-surface-container-low, #f8fafc)',
+                      background: 'var(--bg-card)',
                       border: '1px solid var(--border-subtle)',
                     }}
                   >
@@ -609,7 +611,7 @@ export default function DocumentStudio() {
       {/* 4. VERIFIED LOR TAB                                                 */}
       {/* =================================================================== */}
       {activeTab === 'lor' && (
-        <div className="glass-card animate-fade-in" style={{ padding: '2rem', background: '#ffffff', borderRadius: '16px' }}>
+        <div className="glass-card animate-fade-in" style={{ padding: '2rem', background: 'var(--bg-card)', borderRadius: '16px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
             <div>
               <h2 style={{ fontSize: '1.25rem', fontWeight: 800, margin: 0, color: 'var(--text-main)' }}>
@@ -637,7 +639,7 @@ export default function DocumentStudio() {
             style={{
               padding: '1.5rem',
               borderRadius: '12px',
-              background: 'var(--color-surface-container-low, #f8fafc)',
+              background: 'var(--bg-card)',
               border: '1px solid var(--border-subtle)',
               fontFamily: 'serif',
               lineHeight: 1.8,

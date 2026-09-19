@@ -1,6 +1,6 @@
 ultralytics==8.4.115
-opencv-python==5.0.0.93
-numpy>=1.26.0
+opencv-python==4.9.0.80
+numpy>=1.26.0,<2.0.0
 Pillow>=10.0.0
 facenet-pytorch==2.6.0
 torch>=2.0.0
@@ -22,3 +22,4 @@ django>=5.0.0
 djangorestframework>=3.14.0
 django-cors-headers>=4.3.0
 requests>=2.31.0
+gunicorn>=21.2.0

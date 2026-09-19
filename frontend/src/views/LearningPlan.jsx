@@ -130,7 +130,7 @@ export default function LearningPlan({ setActiveTab }) {
             background: 'var(--color-error-container, #fee2e2)',
             border: '1px solid #fecaca',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-error-container, #991b1b)',
+            color: 'var(--color-on-error-container, #fca5a5)',
             fontSize: '0.85rem',
             fontWeight: 500,
           }}
@@ -147,7 +147,7 @@ export default function LearningPlan({ setActiveTab }) {
             background: 'var(--color-tertiary-fixed, #dcfce7)',
             border: '1px solid var(--color-tertiary-fixed-dim, #86efac)',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-tertiary-fixed, #14532d)',
+            color: 'var(--color-on-tertiary-fixed, #86efac)',
             fontSize: '0.85rem',
             fontWeight: 600,
             display: 'flex',
@@ -403,7 +403,7 @@ export default function LearningPlan({ setActiveTab }) {
                     <div
                       key={mod.module_id || mIdx}
                       style={{
-                        background: 'var(--color-surface-container-low, #f8fafc)',
+                        background: 'var(--bg-card)',
                         border: '1px solid var(--border-subtle)',
                         padding: '0.9rem',
                         borderRadius: 'var(--radius-md)',

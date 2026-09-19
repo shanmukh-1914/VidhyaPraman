@@ -374,7 +374,7 @@ export default function OnboardingStudio() {
             background: 'var(--color-error-container, #fee2e2)',
             border: '1px solid #fecaca',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-error-container, #991b1b)',
+            color: 'var(--color-on-error-container, #fca5a5)',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
@@ -418,8 +418,8 @@ export default function OnboardingStudio() {
                         justifyContent: 'space-between',
                         padding: '0.75rem 1rem',
                         borderRadius: 'var(--radius-md)',
-                        background: selectedSkill === skill ? 'var(--color-primary-fixed, #dbeafe)' : 'var(--color-surface-container-low, #f8fafc)',
-                        border: selectedSkill === skill ? '1px solid var(--color-primary-fixed-dim, #93c5fd)' : '1px solid var(--border-subtle)',
+                        background: selectedSkill === skill ? 'rgba(37, 99, 235, 0.2)' : '#18181b',
+                        border: selectedSkill === skill ? '1px solid #3b82f6' : '1px solid var(--border-subtle)',
                         cursor: 'pointer',
                         fontWeight: 600,
                         color: 'var(--text-main)',
@@ -535,8 +535,8 @@ export default function OnboardingStudio() {
                             style={{
                               padding: '0.65rem 0.85rem',
                               borderRadius: 'var(--radius-md)',
-                              background: isSelected ? 'var(--color-primary-fixed, #dbeafe)' : 'var(--color-surface-container-low, #f8fafc)',
-                              border: isSelected ? '1px solid var(--color-primary-fixed-dim, #93c5fd)' : '1px solid var(--border-subtle)',
+                              background: isSelected ? 'rgba(37, 99, 235, 0.2)' : '#18181b',
+                              border: isSelected ? '1px solid #3b82f6' : '1px solid var(--border-subtle)',
                               cursor: 'pointer',
                               fontSize: '0.8rem',
                               fontWeight: 600,
@@ -581,7 +581,7 @@ export default function OnboardingStudio() {
                     style={{
                       padding: '0.85rem 1rem',
                       borderRadius: 'var(--radius-md)',
-                      background: 'var(--color-surface-container-low, #f8fafc)',
+                      background: 'var(--bg-card)',
                       border: '1px solid var(--border-subtle)',
                       display: 'flex',
                       alignItems: 'center',
@@ -681,8 +681,8 @@ export default function OnboardingStudio() {
                               gap: '0.75rem',
                               padding: '0.65rem 0.9rem',
                               borderRadius: 'var(--radius-md)',
-                              background: isSelected ? 'var(--color-primary-fixed, #dbeafe)' : 'var(--color-surface-container-low, #f8fafc)',
-                              border: isSelected ? '1px solid var(--color-primary-fixed-dim, #93c5fd)' : '1px solid var(--border-subtle)',
+                              background: isSelected ? 'rgba(37, 99, 235, 0.2)' : '#18181b',
+                              border: isSelected ? '1px solid #3b82f6' : '1px solid var(--border-subtle)',
                               cursor: 'pointer',
                               fontSize: '0.86rem',
                               color: 'var(--text-main)',
@@ -756,7 +756,7 @@ export default function OnboardingStudio() {
 
           {/* Right Column: Live Proctoring Monitor Bridge */}
           <div style={{ position: 'sticky', top: '5.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <div className="glass-card" style={{ background: '#ffffff', borderRadius: '16px' }}>
+            <div className="glass-card" style={{ background: 'var(--bg-card)', borderRadius: '16px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                   <Eye size={18} color="var(--color-primary, #2563eb)" />
@@ -780,13 +780,13 @@ export default function OnboardingStudio() {
               />
 
               <div style={{ marginTop: '1rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem' }}>
-                <div style={{ padding: '0.65rem', borderRadius: '8px', background: 'var(--color-surface-container-low, #f8fafc)', border: '1px solid var(--border-subtle)' }}>
+                <div style={{ padding: '0.65rem', borderRadius: '8px', background: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}>
                   <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>Integrity Score</div>
                   <div style={{ fontSize: '1.15rem', fontWeight: 800, color: integrityScore >= 80 ? 'var(--color-tertiary, #16a34a)' : 'var(--color-secondary, #f97316)' }}>
                     {integrityScore}%
                   </div>
                 </div>
-                <div style={{ padding: '0.65rem', borderRadius: '8px', background: 'var(--color-surface-container-low, #f8fafc)', border: '1px solid var(--border-subtle)' }}>
+                <div style={{ padding: '0.65rem', borderRadius: '8px', background: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}>
                   <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>Flags Recorded</div>
                   <div style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)' }}>
                     {proctoringFlags.length} Events
@@ -838,7 +838,7 @@ export default function OnboardingStudio() {
                 background: 'var(--color-tertiary-fixed, #dcfce7)',
                 border: '1px solid var(--color-tertiary-fixed-dim, #86efac)',
                 borderRadius: 'var(--radius-md)',
-                color: 'var(--color-on-tertiary-fixed, #14532d)',
+                color: 'var(--color-on-tertiary-fixed, #86efac)',
                 fontSize: '0.85rem',
                 display: 'flex',
                 alignItems: 'center',

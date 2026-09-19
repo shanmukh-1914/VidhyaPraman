@@ -201,8 +201,9 @@ export default function AuthPortal() {
           maxWidth: isSignup ? '520px' : '460px',
           padding: '2.5rem 2.25rem',
           borderRadius: '24px',
-          boxShadow: '0 20px 40px -15px rgba(37, 99, 235, 0.1), 0 0 0 1px #e2e8f0',
-          background: '#ffffff',
+          boxShadow: 'var(--shadow-card-elevated)',
+          border: '1px solid var(--border-subtle)',
+          background: 'var(--bg-card)',
           position: 'relative',
           zIndex: 10,
           transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -220,7 +221,7 @@ export default function AuthPortal() {
               fontSize: '1.9rem',
               fontWeight: 900,
               letterSpacing: '0.04em',
-              color: 'var(--color-on-surface, #1e293b)',
+              color: 'var(--color-on-surface, #f4f4f5)',
               marginBottom: '0.35rem',
             }}
           >
@@ -244,9 +245,9 @@ export default function AuthPortal() {
               width: '100%',
               padding: '0.75rem 1rem',
               borderRadius: '12px',
-              border: '1px solid #cbd5e1',
-              background: '#ffffff',
-              color: '#0f172a',
+              border: '1px solid var(--border-subtle)',
+              background: '#121216',
+              color: '#f4f4f5',
               fontWeight: 700,
               fontSize: '0.9rem',
               cursor: 'pointer',
@@ -259,7 +260,7 @@ export default function AuthPortal() {
               fontFamily: 'inherit',
             }}
           >
-            <Github size={18} color="#0f172a" />
+            <Github size={18} color="#ffffff" />
             <span>{loading && oauthProvider === 'GitHub' ? 'Connecting to GitHub...' : 'Continue with Verified GitHub'}</span>
           </button>
 
@@ -272,9 +273,9 @@ export default function AuthPortal() {
               width: '100%',
               padding: '0.75rem 1rem',
               borderRadius: '12px',
-              border: '1px solid #cbd5e1',
-              background: '#ffffff',
-              color: '#0f172a',
+              border: '1px solid var(--border-subtle)',
+              background: '#121216',
+              color: '#f4f4f5',
               fontWeight: 700,
               fontSize: '0.9rem',
               cursor: 'pointer',
@@ -394,7 +395,7 @@ export default function AuthPortal() {
               background: 'var(--color-error-container, #fee2e2)',
               border: '1px solid #fecaca',
               borderRadius: '10px',
-              color: 'var(--color-on-error-container, #991b1b)',
+              color: 'var(--color-on-error-container, #fca5a5)',
               fontSize: '0.85rem',
               display: 'flex',
               alignItems: 'flex-start',

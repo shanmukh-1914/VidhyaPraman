@@ -227,7 +227,7 @@ export default function ProfileModal({ isOpen, onClose }) {
         position: 'fixed',
         inset: 0,
         zIndex: 9999,
-        background: 'rgba(15, 23, 42, 0.45)',
+        background: 'rgba(0, 0, 0, 0.75)',
         backdropFilter: 'blur(8px)',
         display: 'flex',
         alignItems: 'center',
@@ -245,8 +245,8 @@ export default function ProfileModal({ isOpen, onClose }) {
           overflowY: 'auto',
           padding: '2rem',
           borderRadius: '20px',
-          background: '#ffffff',
-          boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.15), 0 0 0 1px #e2e8f0',
+          background: '#18181b',
+          boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1)',
           position: 'relative',
         }}
         onClick={(e) => e.stopPropagation()}
@@ -329,7 +329,7 @@ export default function ProfileModal({ isOpen, onClose }) {
               background: 'var(--color-tertiary-fixed, #dcfce7)',
               border: '1px solid var(--color-tertiary-fixed-dim, #86efac)',
               borderRadius: '10px',
-              color: 'var(--color-on-tertiary-fixed, #14532d)',
+              color: 'var(--color-on-tertiary-fixed, #86efac)',
               fontSize: '0.85rem',
               display: 'flex',
               alignItems: 'center',
@@ -350,7 +350,7 @@ export default function ProfileModal({ isOpen, onClose }) {
               background: 'var(--color-error-container, #fee2e2)',
               border: '1px solid #fecaca',
               borderRadius: '10px',
-              color: 'var(--color-on-error-container, #991b1b)',
+              color: 'var(--color-on-error-container, #fca5a5)',
               fontSize: '0.85rem',
               display: 'flex',
               alignItems: 'center',
@@ -374,8 +374,8 @@ export default function ProfileModal({ isOpen, onClose }) {
               style={{
                 padding: '1.15rem',
                 borderRadius: '12px',
-                background: isGitHubLinked ? 'var(--color-surface-container-low, #f8fafc)' : '#f8fafc',
-                border: isGitHubLinked ? '1px solid var(--color-tertiary, #16a34a)' : '1px solid var(--border-subtle)',
+                background: isGitHubLinked ? 'rgba(16, 185, 129, 0.12)' : '#18181b',
+                border: isGitHubLinked ? '1px solid rgba(34, 197, 94, 0.35)' : '1px solid var(--border-subtle)',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -452,7 +452,7 @@ export default function ProfileModal({ isOpen, onClose }) {
 
             {/* Synced Repositories Preview Chip List */}
             {isGitHubLinked && user?.github_repos && user.github_repos.length > 0 && (
-              <div style={{ marginBottom: '1.25rem', padding: '0.75rem 1rem', background: 'var(--color-surface-container-low, #f8fafc)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>
+              <div style={{ marginBottom: '1.25rem', padding: '0.75rem 1rem', background: '#18181b', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
                   <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)' }}>
                     SYNCED REPOSITORIES ({user.github_repos.length})
@@ -473,7 +473,7 @@ export default function ProfileModal({ isOpen, onClose }) {
                         fontSize: '0.72rem',
                         padding: '0.2rem 0.5rem',
                         borderRadius: 'var(--radius-sm)',
-                        background: '#ffffff',
+                        background: '#18181b',
                         border: '1px solid var(--border-subtle)',
                         color: 'var(--text-main)',
                         fontWeight: 600,
@@ -551,7 +551,7 @@ export default function ProfileModal({ isOpen, onClose }) {
         {activeTab === 'resume_import' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {/* Resume Upload / PDF Drag & Drop Zone */}
-            <div className="glass-card" style={{ background: 'var(--color-surface-container-low, #f8fafc)', padding: '1.25rem' }}>
+            <div className="glass-card" style={{ background: '#18181b', padding: '1.25rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <FileText size={18} color="var(--color-primary, #2563eb)" />
@@ -568,7 +568,7 @@ export default function ProfileModal({ isOpen, onClose }) {
               <div
                 style={{
                   border: '2px dashed var(--color-primary-fixed-dim, #93c5fd)',
-                  background: '#ffffff',
+                  background: '#18181b',
                   borderRadius: '12px',
                   padding: '1.5rem 1rem',
                   textAlign: 'center',
@@ -637,7 +637,7 @@ export default function ProfileModal({ isOpen, onClose }) {
                 placeholder="Paste plain text of your resume here (including skills, projects, and certificates)..."
                 value={resumeText}
                 onChange={(e) => setResumeText(e.target.value)}
-                style={{ background: '#ffffff', fontSize: '0.82rem' }}
+                style={{ background: '#18181b', fontSize: '0.82rem' }}
               />
 
               <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.75rem' }}>
@@ -679,8 +679,8 @@ export default function ProfileModal({ isOpen, onClose }) {
                           style={{
                             padding: '0.45rem 0.75rem',
                             borderRadius: '8px',
-                            background: isVerified ? 'var(--color-tertiary-fixed, #dcfce7)' : '#ffffff',
-                            border: isVerified ? '1px solid var(--color-tertiary, #16a34a)' : '1px solid var(--border-subtle)',
+                            background: isVerified ? 'rgba(16, 185, 129, 0.12)' : '#18181b',
+                            border: isVerified ? '1px solid rgba(34, 197, 94, 0.35)' : '1px solid var(--border-subtle)',
                             display: 'flex',
                             alignItems: 'center',
                             gap: '0.5rem',
@@ -725,8 +725,8 @@ export default function ProfileModal({ isOpen, onClose }) {
                           style={{
                             padding: '0.75rem',
                             borderRadius: '10px',
-                            background: isVerified ? 'var(--color-tertiary-fixed, #dcfce7)' : 'var(--color-surface-container-low, #f8fafc)',
-                            border: isVerified ? '1px solid var(--color-tertiary, #16a34a)' : '1px solid var(--border-subtle)',
+                            background: isVerified ? 'rgba(16, 185, 129, 0.12)' : '#18181b',
+                            border: isVerified ? '1px solid rgba(34, 197, 94, 0.35)' : '1px solid var(--border-subtle)',
                             display: 'flex',
                             justifyContent: 'space-between',
                             alignItems: 'center',
@@ -794,8 +794,8 @@ export default function ProfileModal({ isOpen, onClose }) {
                         style={{
                           padding: '0.65rem 0.85rem',
                           borderRadius: '8px',
-                          background: cert.verified ? 'var(--color-tertiary-fixed, #dcfce7)' : '#ffffff',
-                          border: cert.verified ? '1px solid var(--color-tertiary, #16a34a)' : '1px solid var(--border-subtle)',
+                          background: cert.verified ? 'rgba(16, 185, 129, 0.12)' : '#18181b',
+                          border: cert.verified ? '1px solid rgba(34, 197, 94, 0.35)' : '1px solid var(--border-subtle)',
                           display: 'flex',
                           justifyContent: 'space-between',
                           alignItems: 'center',
@@ -859,7 +859,7 @@ export default function ProfileModal({ isOpen, onClose }) {
                 maxWidth: '620px',
                 padding: '2rem',
                 borderRadius: '20px',
-                background: '#ffffff',
+                background: '#18181b',
                 maxHeight: '90vh',
                 overflowY: 'auto',
               }}
@@ -911,7 +911,7 @@ export default function ProfileModal({ isOpen, onClose }) {
                     borderRadius: '10px',
                     marginBottom: '1rem',
                     background: projectQAResult.is_verified ? 'var(--color-tertiary-fixed, #dcfce7)' : 'var(--color-error-container, #fee2e2)',
-                    color: projectQAResult.is_verified ? '#14532d' : '#991b1b',
+                    color: projectQAResult.is_verified ? '#86efac' : '#fca5a5',
                     fontSize: '0.82rem',
                     fontWeight: 700,
                   }}

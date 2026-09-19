@@ -154,7 +154,7 @@ export default function IdentityCheck() {
             background: 'var(--color-error-container, #fee2e2)',
             border: '1px solid #fecaca',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-error-container, #991b1b)',
+            color: 'var(--color-on-error-container, #fca5a5)',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
@@ -251,7 +251,7 @@ export default function IdentityCheck() {
                 <div
                   style={{
                     marginTop: '1rem',
-                    background: 'var(--color-surface-container-low, #f8fafc)',
+                    background: 'var(--bg-card)',
                     padding: '0.75rem 1rem',
                     borderRadius: 'var(--radius-md)',
                     border: '1px solid var(--border-subtle)',
@@ -392,14 +392,14 @@ export default function IdentityCheck() {
                   </div>
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                      <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: verifyResult.match ? 'var(--color-on-tertiary-fixed, #14532d)' : 'var(--color-on-error-container, #991b1b)', margin: 0 }}>
+                      <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: verifyResult.match ? 'var(--color-on-tertiary-fixed, #86efac)' : 'var(--color-on-error-container, #fca5a5)', margin: 0 }}>
                         {verifyResult.match ? 'Identity Verified • Authentic Match' : 'Identity Mismatch Detected'}
                       </h3>
                       <span className={`badge ${verifyResult.match ? 'badge-green' : 'badge-red'}`}>
                         {verifyResult.match ? 'Authorized Candidate' : 'Verification Required'}
                       </span>
                     </div>
-                    <p style={{ fontSize: '0.84rem', color: verifyResult.match ? 'var(--color-on-tertiary-fixed, #14532d)' : 'var(--color-on-error-container, #991b1b)', marginTop: '0.2rem' }}>
+                    <p style={{ fontSize: '0.84rem', color: verifyResult.match ? 'var(--color-on-tertiary-fixed, #86efac)' : 'var(--color-on-error-container, #fca5a5)', marginTop: '0.2rem' }}>
                       {verifyResult.verdict || (verifyResult.match ? 'Your live facial features match the enrolled reference portrait baseline.' : 'Live camera frame differs significantly from reference portrait.')}
                     </p>
                   </div>
@@ -411,7 +411,7 @@ export default function IdentityCheck() {
                     style={{
                       padding: '0.6rem 1.1rem',
                       borderRadius: '12px',
-                      background: '#ffffff',
+                      background: 'var(--bg-card)',
                       border: '1px solid var(--border-subtle)',
                       textAlign: 'center',
                       boxShadow: 'var(--shadow-sm)',
@@ -427,7 +427,7 @@ export default function IdentityCheck() {
                     style={{
                       padding: '0.6rem 1.1rem',
                       borderRadius: '12px',
-                      background: '#ffffff',
+                      background: 'var(--bg-card)',
                       border: '1px solid var(--border-subtle)',
                       textAlign: 'center',
                       boxShadow: 'var(--shadow-sm)',
@@ -481,14 +481,14 @@ export default function IdentityCheck() {
                 padding: '1.25rem',
                 borderRadius: 'var(--radius-md)',
                 border: '1px solid var(--color-tertiary-fixed-dim, #86efac)',
-                color: 'var(--color-on-tertiary-fixed, #14532d)',
+                color: 'var(--color-on-tertiary-fixed, #86efac)',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, fontSize: '1rem' }}>
                 <CheckCircle size={20} />
                 <span>All Identity Verification Benchmarks Evaluated Successfully!</span>
               </div>
-              <p style={{ fontSize: '0.82rem', color: 'var(--color-on-tertiary-fixed, #14532d)', marginTop: '0.4rem' }}>
+              <p style={{ fontSize: '0.82rem', color: 'var(--color-on-tertiary-fixed, #86efac)', marginTop: '0.4rem' }}>
                 Cosine similarity between same candidate = 83.5% (Match = True), different candidate = -30.1% (Match = False).
               </p>
             </div>

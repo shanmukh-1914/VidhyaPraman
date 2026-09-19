@@ -1,0 +1,27 @@
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.fastapi
+    container_name: vidhyapraman-fastapi
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./skill_model.joblib:/app/skill_model.joblib:ro
+      - ./yolov8n.pt:/app/yolov8n.pt:ro
+
+  django:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.django
+    container_name: vidhyapraman-django
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env
+    volumes:
+      - ./server_django/db.sqlite3:/app/server_django/db.sqlite3

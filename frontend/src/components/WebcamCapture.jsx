@@ -208,7 +208,7 @@ export default function WebcamCapture({
                   background: 'var(--color-tertiary-fixed, #dcfce7)',
                   padding: '0.35rem 0.85rem',
                   borderRadius: '8px',
-                  color: 'var(--color-on-tertiary-fixed, #14532d)',
+                  color: 'var(--color-on-tertiary-fixed, #86efac)',
                   fontSize: '0.75rem',
                   fontWeight: 700,
                   whiteSpace: 'nowrap',
@@ -296,7 +296,7 @@ export default function WebcamCapture({
         <div
           style={{
             fontSize: '0.8rem',
-            color: 'var(--color-on-error-container, #991b1b)',
+            color: 'var(--color-on-error-container, #fca5a5)',
             background: 'var(--color-error-container, #fee2e2)',
             padding: '0.6rem 0.85rem',
             borderRadius: 'var(--radius-sm)',

@@ -174,7 +174,7 @@ export default function RAGStudio() {
             background: 'var(--color-tertiary-fixed, #dcfce7)',
             border: '1px solid var(--color-tertiary-fixed-dim, #86efac)',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-tertiary-fixed, #14532d)',
+            color: 'var(--color-on-tertiary-fixed, #86efac)',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
@@ -195,7 +195,7 @@ export default function RAGStudio() {
             background: 'var(--color-error-container, #fee2e2)',
             border: '1px solid #fecaca',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-error-container, #991b1b)',
+            color: 'var(--color-on-error-container, #fca5a5)',
             fontSize: '0.85rem',
             fontWeight: 500,
           }}
@@ -319,7 +319,7 @@ export default function RAGStudio() {
                   <div
                     key={idx}
                     style={{
-                      background: 'var(--color-surface-container-low, #f8fafc)',
+                      background: 'var(--bg-card)',
                       border: '1px solid var(--border-subtle)',
                       padding: '0.85rem 1rem',
                       borderRadius: 'var(--radius-md)',

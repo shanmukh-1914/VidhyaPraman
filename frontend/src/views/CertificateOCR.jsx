@@ -147,7 +147,7 @@ export default function CertificateOCR() {
             background: 'var(--color-tertiary-fixed, #dcfce7)',
             border: '1px solid var(--color-tertiary-fixed-dim, #86efac)',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-tertiary-fixed, #14532d)',
+            color: 'var(--color-on-tertiary-fixed, #86efac)',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
@@ -168,7 +168,7 @@ export default function CertificateOCR() {
             background: 'var(--color-error-container, #fee2e2)',
             border: '1px solid #fecaca',
             borderRadius: 'var(--radius-md)',
-            color: 'var(--color-on-error-container, #991b1b)',
+            color: 'var(--color-on-error-container, #fca5a5)',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
@@ -262,7 +262,7 @@ export default function CertificateOCR() {
                     alignItems: 'center',
                     padding: '1.5rem',
                     textAlign: 'center',
-                    background: '#ffffff',
+                    background: 'var(--bg-card)',
                     border: '1px solid var(--border-subtle)',
                     borderRadius: '16px',
                     boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
@@ -404,15 +404,15 @@ export default function CertificateOCR() {
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                   {uploadResult.is_verified ? (
-                    <ShieldCheck size={32} color="var(--color-on-tertiary-fixed, #14532d)" />
+                    <ShieldCheck size={32} color="var(--color-on-tertiary-fixed, #86efac)" />
                   ) : (
-                    <ShieldAlert size={32} color="var(--color-on-error-container, #991b1b)" />
+                    <ShieldAlert size={32} color="var(--color-on-error-container, #fca5a5)" />
                   )}
                   <div>
-                    <h3 style={{ margin: 0, fontWeight: 900, color: uploadResult.is_verified ? '#14532d' : '#991b1b', fontSize: '1.05rem' }}>
+                    <h3 style={{ margin: 0, fontWeight: 900, color: uploadResult.is_verified ? '#86efac' : '#fca5a5', fontSize: '1.05rem' }}>
                       {uploadResult.is_verified ? 'CERTIFICATE AUTHENTICATED' : 'VERIFICATION REJECTED'}
                     </h3>
-                    <span style={{ fontSize: '0.75rem', color: uploadResult.is_verified ? '#166534' : '#b91c1c' }}>
+                    <span style={{ fontSize: '0.75rem', color: uploadResult.is_verified ? '#bbf7d0' : '#fca5a5' }}>
                       {uploadResult.is_verified
                         ? 'Added to verified profile. Eligible for resume generation.'
                         : 'Excluded from resume stats & verified credentials.'}
@@ -421,11 +421,11 @@ export default function CertificateOCR() {
                 </div>
 
                 {!uploadResult.is_verified && uploadResult.rejection_reasons?.length > 0 && (
-                  <div style={{ background: '#ffffff', padding: '0.75rem', borderRadius: '8px', marginTop: '0.5rem', border: '1px solid #fecaca' }}>
-                    <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#991b1b', marginBottom: '0.25rem' }}>
+                  <div style={{ background: 'var(--bg-card)', padding: '0.75rem', borderRadius: '8px', marginTop: '0.5rem', border: '1px solid #fecaca' }}>
+                    <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#fca5a5', marginBottom: '0.25rem' }}>
                       Authenticity Failure Reasons:
                     </div>
-                    <ul style={{ margin: 0, paddingLeft: '1.1rem', fontSize: '0.75rem', color: '#b91c1c' }}>
+                    <ul style={{ margin: 0, paddingLeft: '1.1rem', fontSize: '0.75rem', color: '#fca5a5' }}>
                       {uploadResult.rejection_reasons.map((r, rIdx) => (
                         <li key={rIdx}>{r}</li>
                       ))}
@@ -460,7 +460,7 @@ export default function CertificateOCR() {
                       style={{
                         padding: '0.65rem 0.85rem',
                         borderRadius: '8px',
-                        background: 'var(--color-surface-container-low, #f8fafc)',
+                        background: 'var(--bg-card)',
                         border: '1px solid var(--border-subtle)',
                         display: 'flex',
                         justifyContent: 'space-between',
