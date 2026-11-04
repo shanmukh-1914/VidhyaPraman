@@ -36,7 +36,7 @@ from sklearn.inspection import permutation_importance
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 
-MODEL_FILE = "skill_model.joblib"
+MODEL_FILE = str(Path(__file__).resolve().parent / "skill_model.joblib")
 FEATURE_NAMES = [
     "repo_count",
     "commits_last_6mo",

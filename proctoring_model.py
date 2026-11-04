@@ -47,7 +47,10 @@ _PHONE_CLASS_ID: int = 67
 _DEVICE_CLASS_IDS: set = {67, 65}
 
 
-def get_model(model_name: str = "yolov8n.pt") -> YOLO:
+_WEIGHTS_DIR = Path(__file__).resolve().parent
+_DEFAULT_WEIGHTS = str(_WEIGHTS_DIR / "yolov8n.pt") if (_WEIGHTS_DIR / "yolov8n.pt").exists() else "yolov8n.pt"
+
+def get_model(model_name: str = _DEFAULT_WEIGHTS) -> YOLO:
     """
     Retrieves or lazily initializes the cached YOLOv8 model instance.
     

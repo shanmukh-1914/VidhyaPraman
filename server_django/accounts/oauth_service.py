@@ -17,6 +17,8 @@ from pathlib import Path
 
 # Auto-load .env if not loaded yet
 _ENV_PATH = Path(__file__).resolve().parent.parent / '.env'
+if not _ENV_PATH.exists():
+    _ENV_PATH = Path(__file__).resolve().parent.parent.parent / '.env'
 if _ENV_PATH.exists():
     with open(_ENV_PATH, 'r', encoding='utf-8') as _f:
         for _line in _f:

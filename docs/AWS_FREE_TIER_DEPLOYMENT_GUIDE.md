@@ -122,7 +122,7 @@ If your repository is on GitHub:
 sudo apt update -y && sudo apt install -y git
 sudo mkdir -p /var/www/vidhyapraman
 sudo chown -R ubuntu:ubuntu /var/www/vidhyapraman
-git clone https://github.com/<YOUR_GITHUB_USERNAME>/VidhyaPraman.git /var/www/vidhyapraman
+git clone https://github.com/shanmukh-1914/VidhyaPraman.git /var/www/vidhyapraman
 cd /var/www/vidhyapraman
 ```
 
