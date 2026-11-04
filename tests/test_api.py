@@ -4,7 +4,11 @@ test_api.py - Verification script for FastAPI app and endpoints.
 import sys
 import os
 os.environ["LLM_TIMEOUT"] = "25.0"
-sys.path.insert(0, r"d:\SkillForge")
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+DJANGO_DIR = os.path.join(PROJECT_ROOT, 'server_django')
+for _p in (PROJECT_ROOT, DJANGO_DIR):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from fastapi.testclient import TestClient
 from main import app
