@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 Vidhya Praman Contributors
+Copyright (c) 2026 Sai Nandhan Mucharla, Shanmukh, and Vidhya Praman Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,45 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+==============================================================================
+Third-Party Software, Model Weights & Dependency Licenses
+==============================================================================
+Vidhya Praman incorporates, links with, or utilizes open-source libraries,
+models, and pretrained weights governed by their respective licenses:
+
+1. Ultralytics YOLOv8 (proctoring_model.py)
+   - Copyright (c) Ultralytics Inc.
+   - License: GNU Affero General Public License v3.0 (AGPL-3.0) / Commercial
+   - Notice: https://github.com/ultralytics/ultralytics/blob/main/LICENSE
+
+2. FaceNet-PyTorch / InceptionResnetV1 (identity_check_model.py)
+   - Copyright (c) 2019 Tim Esler
+   - License: MIT License
+   - Weights: Pretrained on VGGFace2 (for academic & research evaluation)
+   - Notice: https://github.com/timesler/facenet-pytorch/blob/master/LICENSE.txt
+
+3. Sentence-Transformers / all-MiniLM-L6-v2 (rag_retrieval_model.py)
+   - Copyright (c) UKP Lab, TU Darmstadt
+   - License: Apache License 2.0
+   - Notice: https://github.com/UKPLab/sentence-transformers/blob/master/LICENSE
+
+4. EasyOCR (certificate_ocr_model.py)
+   - Copyright (c) 2020 Jaided AI
+   - License: Apache License 2.0
+   - Notice: https://github.com/JaidedAI/EasyOCR/blob/master/LICENSE
+
+5. PyTorch & Torchvision (Deep Learning Runtime)
+   - Copyright (c) 2016-present Meta Platforms, Inc.
+   - License: Modified BSD License
+   - Notice: https://github.com/pytorch/pytorch/blob/main/LICENSE
+
+6. Django & Django REST Framework (Core Relational Engine)
+   - Copyright (c) Django Software Foundation & Encode OSS Ltd.
+   - License: 3-Clause BSD License
+   - Notice: https://github.com/django/django/blob/main/LICENSE
+
+7. React 19 & Vite (Frontend Dashboard)
+   - Copyright (c) Meta Platforms, Inc. and Vite Contributors
+   - License: MIT License
+   - Notice: https://github.com/facebook/react/blob/main/LICENSE
